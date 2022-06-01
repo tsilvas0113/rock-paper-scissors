@@ -18,33 +18,33 @@ const playRound = (playerSelection, computerSelection) => {
     switch (computerSelection) {
         case 'Rock':
             if (playerSelection === 'scissors') {
-                return 'You Lose! Rock beats Scissors'
+                return 'lose'
             } else if (playerSelection === 'paper') {
-                return 'You Win! Paper beats Rock'
+                return 'win'
             } else if (playerSelection === 'rock') {
-                return 'Draw! Both selections are Rock'
+                return 'draw'
             } else {
                 return 'Not a valid choice, choose Rock, Paper, or Scissors'
             }
             break;
         case 'Paper':
             if (playerSelection === 'scissors') {
-                return 'You Win! Scissors beats Paper'
+                return 'win'
             } else if (playerSelection === 'paper') {
-                return 'Draw! Both selections are Paper'
+                return 'draw'
             } else if (playerSelection === 'rock') {
-                return 'You Lose! Paper beats Rock'
+                return 'lose'
             } else {
                 return 'Not a valid choice, choose Rock, Paper, or Scissors'
             }
             break;
         case 'Scissors':
             if (playerSelection === 'scissors') {
-                return 'Draw! Both selections are Scissors'
+                return 'draw'
             } else if (playerSelection === 'paper') {
-                return 'You Lose! Scissors beats Paper'
+                return 'lose'
             } else if (playerSelection === 'rock') {
-                return 'You Win! Rock beats Scissors'
+                return 'win'
             } else {
                 return 'Not a valid choice, choose Rock, Paper, or Scissors'
             }
@@ -52,3 +52,24 @@ const playRound = (playerSelection, computerSelection) => {
     };
 };
 
+const game = () => {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Choose Rock, Paper, or Scissors!");
+        let computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+        if (playRound() === 'win') {
+            playerScore += 1;
+            console.log(playerScore);
+            console.log(computerScore);
+        } else if (playRound() === 'lose') {
+            computerScore += 1;
+            console.log(playerScore);
+            console.log(computerScore);
+        } else if (playRound() === 'draw') {
+            console.log(playerScore);
+            console.log(computerScore);
+        }
+    };
+};
