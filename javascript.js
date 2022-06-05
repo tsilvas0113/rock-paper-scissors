@@ -51,7 +51,7 @@ const playRound = (playerSelection, computerSelection) => {
     };
 };
 
-const game = () => {
+/*const game = () => {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
@@ -75,6 +75,6 @@ const game = () => {
     } else {
         console.log(`The game ends in a draw! Your score is ${playerScore} and the computer's score is ${computerScore}`);
     }
-};
+};*/
 
-game();
+//game();//
