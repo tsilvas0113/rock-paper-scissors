@@ -71,8 +71,8 @@ const playRound = (playerSelection, computerSelection) => {
             } else {
                 roundResult.textContent = 'Not a valid choice, choose Rock, Paper, or Scissors';
             }
-            break;
     };
+    didSomeoneWin();
 };
 
 function getPlayerChoice(e) {
@@ -81,31 +81,19 @@ function getPlayerChoice(e) {
     playRound(playerSelection, computerPlay());
 };
 
-/*const game = () => {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt("Choose Rock, Paper, or Scissors!").toLowerCase();
-        let computerChoice = computerPlay();
-        playRound(playerChoice, computerChoice);
-        if (playRound(playerChoice, computerChoice) === 'win') {
-            playerScore += 1;
-            console.log(`Aesome, you win! Your score is now ${playerScore} and the computer's score is ${computerScore}.`);
-        } else if (playRound(playerChoice, computerChoice) === 'lose') {
-            computerScore += 1;
-            console.log(`Sorry, you lose! Your score is ${playerScore} and the computer's score is now ${computerScore}.`);
-        } else if (playRound(playerChoice, computerChoice) === 'draw') {
-            console.log(`Draw! Your score is ${playerScore} and the computer's score is ${computerScore}.`);
+const didSomeoneWin = () => {
+    if (playerPoint === 5 || computerPoint === 5) {
+        if (playerPoint === computerPoint) {
+            roundResult.textContent = 'The game is a tie! No one wins, all is lost..'
+            btnChoice.forEach(button => { button.removeEventListener('click', getPlayerChoice) });
+        } else {
+            if (playerPoint === 5) {
+                roundResult.textContent = "You won the game! Congratulations! You're not a failure.."
+                btnChoice.forEach(button => { button.removeEventListener('click', getPlayerChoice) });
+            } else if (computerPoint === 5) {
+                roundResult.textContent = "You lost...pathetic!"
+                btnChoice.forEach(button => { button.removeEventListener('click', getPlayerChoice) });
+            }
         }
     };
-    if (playerScore > computerScore) {
-        console.log(`Congratulations! You won the game! Your score is ${playerScore} and the computer's score is ${computerScore}.`);
-    } else if (computerScore > playerScore) {
-        console.log(`Sorry, you lost the game. Your score is ${playerScore} and the computer's score is ${computerScore}.`);
-    } else {
-        console.log(`The game ends in a draw! Your score is ${playerScore} and the computer's score is ${computerScore}`);
-    }
-};*/
-
-
-//game();//
+};
