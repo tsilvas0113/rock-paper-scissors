@@ -124,7 +124,7 @@ body {
     justify-content: center;
 }
 
-.player-score, .computer-score {
+.player, .computer {
     font-size: 2rem;
     text-align: center;
     text-shadow: -2px 8px 7px #121e62;

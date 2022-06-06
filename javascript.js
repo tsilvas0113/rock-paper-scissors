@@ -1,54 +1,84 @@
+const btnChoice = document.querySelectorAll('div.button-container button');
+const roundResult = document.querySelector('.explain');
+const playerScore = document.querySelector('.player-score');
+const computerScore = document.querySelector('.computer-score');
+
+btnChoice.forEach(button => { button.addEventListener('click', getPlayerChoice) });
+
+
+let playerPoint = 0;
+let computerPoint = 0;
+let playerPick;
+
+
 const computerPlay = () => {
-    let computerChoice = Math.floor(Math.random() * 3) + 1;
-    switch (computerChoice) {
+    let computerPicks = Math.floor(Math.random() * 3) + 1;
+    switch (computerPicks) {
         case 1:
             return 'Rock';
-            break;
         case 2:
             return 'Paper';
-            break;
         case 3:
             return 'Scissors';
-            break;
     };
 };
+
+let computerPicks = computerPlay();
 
 const playRound = (playerSelection, computerSelection) => {
     switch (computerSelection) {
         case 'Rock':
             if (playerSelection === 'scissors') {
-                return 'lose'
+                roundResult.textContent = `You lost! ${computerSelection} beats ${playerPick}`;
+                computerScore.textContent = ++computerPoint;
             } else if (playerSelection === 'paper') {
-                return 'win'
+                roundResult.textContent = `You won! ${playerPick} beats ${computerSelection}`;
+                playerScore.textContent = ++playerPoint;
             } else if (playerSelection === 'rock') {
-                return 'draw'
+                roundResult.textContent = 'Draw!';
+                computerScore.textContent = ++computerPoint;
+                playerScore.textContent = ++playerPoint;
             } else {
-                return 'Not a valid choice, choose Rock, Paper, or Scissors'
+                roundResult.textContent = 'Not a valid choice, choose Rock, Paper, or Scissors';
             }
             break;
         case 'Paper':
             if (playerSelection === 'scissors') {
-                return 'win'
+                roundResult.textContent = `You won! ${playerPick} beats ${computerSelection}`;
+                playerScore.textContent = ++playerPoint;
             } else if (playerSelection === 'paper') {
-                return 'draw'
+                roundResult.textContent = 'Draw!';
+                computerScore.textContent = ++computerPoint;
+                playerScore.textContent = ++playerPoint;
             } else if (playerSelection === 'rock') {
-                return 'lose'
+                roundResult.textContent = `You lost! ${computerSelection} beats ${playerPick}`;
+                computerScore.textContent = ++computerPoint;
             } else {
-                return 'Not a valid choice, choose Rock, Paper, or Scissors'
+                roundResult.textContent = 'Not a valid choice, choose Rock, Paper, or Scissors';
             }
             break;
         case 'Scissors':
             if (playerSelection === 'scissors') {
-                return 'draw'
+                roundResult.textContent = 'Draw!';
+                computerScore.textContent = ++computerPoint;
+                playerScore.textContent = ++playerPoint;
             } else if (playerSelection === 'paper') {
-                return 'lose'
+                roundResult.textContent = `You lost! ${computerSelection} beats ${playerPick}`;
+                computerScore.textContent = ++computerPoint;
             } else if (playerSelection === 'rock') {
-                return 'win'
+                roundResult.textContent = `You won! ${playerPick} beats ${computerSelection}`;
+                playerScore.textContent = ++playerPoint;
             } else {
-                return 'Not a valid choice, choose Rock, Paper, or Scissors'
+                roundResult.textContent = 'Not a valid choice, choose Rock, Paper, or Scissors';
             }
             break;
     };
+};
+
+function getPlayerChoice(e) {
+    let playerSelection = (e.target.className);
+    playerPick = e.target.textContent;
+    playRound(playerSelection, computerPlay());
 };
 
 /*const game = () => {
@@ -76,5 +106,6 @@ const playRound = (playerSelection, computerSelection) => {
         console.log(`The game ends in a draw! Your score is ${playerScore} and the computer's score is ${computerScore}`);
     }
 };*/
+
 
 //game();//
