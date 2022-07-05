@@ -129,3 +129,96 @@ body {
     text-align: center;
     text-shadow: -2px 8px 7px #121e62;
 }
+
+@media (max-width: 500px) {
+    .title-1 {
+        font-size: 2.5rem;
+    }
+
+    .title-2 {
+        font-size: 1.5rem;
+    }
+
+    .title-3 {
+        font-size: 1rem;
+    }
+
+    .button-container {
+        gap: 1.5rem;
+    }
+
+    .box img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .box button {
+        width: 5rem;
+        height: 1.5rem;
+        letter-spacing: 1.3px;
+        font-size: .615rem;
+    }
+
+    .box button:active {
+        font-size: .7rem;
+    }
+
+    .explain {
+        font-size: 1.2rem;
+    }
+
+    .score {
+        gap: 2rem;
+    }
+
+    .player, .computer {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 890px) {
+    .title-1 {
+        font-size: 3rem;
+    }
+
+    .title-2 {
+        font-size: 2rem;
+    }
+
+    .title-3 {
+        font-size: 1.3rem;
+    }
+
+    .button-container {
+        gap: 2.4rem;
+    }
+
+    .box img {
+        height: 130px;
+        width: 130px;
+    }
+
+    .box button {
+        width: 7rem;
+        height: 2.5rem;
+        letter-spacing: 2.5px;
+        font-size: .8rem;
+    }
+
+    .box button:active {
+        font-size: .95rem;
+    }
+
+    .explain {
+        font-size: 1.7rem;
+    }
+
+    .score {
+        gap: 2rem;
+    }
+
+    .player,
+    .computer {
+        font-size: 1.5rem;
+    }
+}
