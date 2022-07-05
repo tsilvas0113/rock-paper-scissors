@@ -133,6 +133,7 @@ body {
 @media (max-width: 500px) {
     .title-1 {
         font-size: 2.5rem;
+        margin: 3rem;
     }
 
     .title-2 {
@@ -142,6 +143,7 @@ body {
 
     .title-3 {
         font-size: 1rem;
+        margin-bottom: 2rem;
     }
 
     .button-container {
